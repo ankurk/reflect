@@ -1,8 +1,91 @@
-<html>
-<head>
-<title>Hello from Flask</title>
-</head>
-<body <!--bgcolor="#000000"-->>
-<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="30%" src="http://forecast.io/embed/#lat=37.774929&lon=-122.419416&name=San Francisco&font=Helvetica&units=uk"> </iframe>
+<!doctype html>
+<title>Reflect</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/clock.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/skycons_color.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-1.12.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/weather.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/leftContextual.js') }}"></script>
+<script type=text/javascript>  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+<body>
+    <table>
+        <tr>
+            <td width="25%">
+                <table>
+                    <tr>
+                        <td width="60%">
+                            <table>
+                                <tr><td><div id="temp"/></td></tr>
+                                <tr><td class="minMax"><div id="minMax"/></td></tr>
+                            </table>
+
+                        </td>
+                        <td colspan="3" class="centered"><canvas id="currIcon" width="128" height="128"></canvas></td>
+                    <tr>
+                    <tr>
+                        <td colspan="3"><div id="summ"></div></td>
+                    </tr>
+                    <tr class="paddedRow">
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="centered" width="10%"><canvas id="rainIcon" width="20" height="20"/></td>
+                                    <td class="centered" width="10%"><div id="rainProb"></div></td>
+                                    <td class="centered" width="40%"><div id="sunrise"></div></td>
+                                    <td class="centered" width="40%"><div id="sunset"></div></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="centered"><div id="day1DayOfWeek"></div></td>
+                                    <td class="centered"><canvas id="day1Icon" width="30" height="30"/></td>
+                                    <td class="minMax"><div id="day1MinMax"></div></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="centered" width="20%"><div id="day2DayOfWeek"></div></td>
+                                    <td class="centered" width="40%"><canvas id="day2Icon" width="30" height="30"/></td>
+                                    <td class="minMax" width="40%"><div id="day2MinMax"></div></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="50%">
+
+            </td>
+            <td width="20%">
+                <table class="righttable">
+                    <tr class="timebox"><td><div id="time" ></div></td></tr>
+                    <tr class="datebox"><td><div id="date"></div></td></tr>
+                    <tr><td><div id="city">San Francisco, CA</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <table id="leftContextual">
+                            </table>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
 </body>
-</html>
+
