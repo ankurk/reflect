@@ -1,6 +1,8 @@
 function updateDirections(data) {
     $("#leftContextual").empty();
-    $("#leftContextual").append("<tr><td><span id='travelTime'>"+data.traffic_time+"</span> to work via "+data.route+"</td><tr>");
+    $("#leftContextual").append("<tr><td><span id='travelTime'>"+data.traffic_time+"</span> to work via "+data.route+"</td></tr>");
+
+    // update style according to traffic
     var with_traffic = data.traffic_time.replace(/[^0-9]/g,'');
     var no_traffic = data.normal_time.replace(/[^0-9]/g,'');
     if (with_traffic > (no_traffic*1.3)) {
@@ -10,8 +12,8 @@ function updateDirections(data) {
     } else {
         $('#travelTime').addClass('greenTravelTime');
     }
-
 }
+
 
 function updateContextual(){
 

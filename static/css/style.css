@@ -30,7 +30,10 @@ table td        { vertical-align: top;}
 .minMax         { text-align: center; color: #BDC3C7;}
 #summ           { font-size: 1.2em;}
 .centered       { text-align: center;}
-.paddedRow      { padding-top: 100px;}
+.paddedRow      { padding-top: 0.5em;}
 .redTravelTime  { color: #D91E18; }
 .orangeTravelTime  { color: #F89406; }
 .greenTravelTime  { color: #00B16A; }
+.downChange       { color: #D91E18; }
+.upChange         { color: #00B16A; }
+

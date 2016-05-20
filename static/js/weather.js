@@ -4,7 +4,7 @@ function updateWeather(){
         $("#temp").html(data.currTemp + "&deg;");
         $("#minMax").html(data.maxTemp + "&deg;&emsp;" + data.minTemp  + "&deg;");
         $("#summ").text(data.summary);
-        $("#rainProb").text(data.rainProb + "%");
+        $("#rainProb").html(data.rainProb + "%&nbsp;");
         $("#sunrise").html("&#8613; " + data.sunrise);
         $("#sunset").html("&#8615; " + data.sunset);
 

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from components import weather, directions
+from components import weather, directions, news, market
 from flask_socketio import SocketIO, emit
 
 
@@ -23,6 +23,21 @@ def get_contextual():
     commute_time['type'] = 'direction'
     return jsonify(commute_time)
 
+@app.route('/_get_news_headlines')
+def get_headlines():
+    response = {}
+    headlines = news.get_headlines()
+    response['type'] = 'news'
+    response['content'] = headlines
+    return jsonify(response)
+
+@app.route('/_get_market_prices')
+def get_stock_prices():
+    response = {}
+    prices = market.get_market_prices()
+    response['type'] = 'market'
+    response['content'] = prices
+    return jsonify(response)
 
 
 # @socketio.on('update weather')

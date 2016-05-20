@@ -1,6 +1,7 @@
 <!doctype html>
 <title>Reflect</title>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -9,6 +10,8 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/skycons_color.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/jquery-1.12.3.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/weather.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/news.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/market.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/leftContextual.js') }}"></script>
 <script type=text/javascript>  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
 <body>
@@ -17,23 +20,23 @@
             <td width="25%">
                 <table>
                     <tr>
-                        <td width="60%">
+                        <td width="50%">
                             <table>
                                 <tr><td><div id="temp"/></td></tr>
                                 <tr><td class="minMax"><div id="minMax"/></td></tr>
                             </table>
 
                         </td>
-                        <td colspan="3" class="centered"><canvas id="currIcon" width="128" height="128"></canvas></td>
+                        <td colspan="3" ><canvas id="currIcon" width="128" height="128"></canvas></td>
                     <tr>
                     <tr>
                         <td colspan="3"><div id="summ"></div></td>
                     </tr>
-                    <tr class="paddedRow">
-                        <td>
+                    <tr>
+                        <td class="paddedRow">
                             <table>
                                 <tr>
-                                    <td class="centered" width="10%"><canvas id="rainIcon" width="20" height="20"/></td>
+                                    <td width="10%"><canvas id="rainIcon" width="20" height="20"/></td>
                                     <td class="centered" width="10%"><div id="rainProb"></div></td>
                                     <td class="centered" width="40%"><div id="sunrise"></div></td>
                                     <td class="centered" width="40%"><div id="sunset"></div></td>
@@ -75,8 +78,26 @@
             <td colspan="3">
                 <table>
                     <tr>
-                        <td width="50%">
+                        <td width="50%" class="paddedRow">
                             <table id="leftContextual">
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%" class="paddedRow">
+                            <table id="market">
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <table id="headlines">
                             </table>
                         </td>
                         <td></td>
